@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const { randomFromArray } = require('../library/Utilities');
 
 module.exports = async (client) => {
     const { config } = client;
@@ -25,7 +26,7 @@ module.exports = async (client) => {
     client.user.setActivity(`yabe help | ${client.guilds.size} servers`, { type: 'PLAYING' });
 
     const cuties = ['Teehee owo', 'uwu', 'OwO', '\*owo\* notices bulgy wulgy', 'Lovies you papas!~', 'Nyaa! ฅ(＾・ω・＾ฅ)'];
-    const cutiesR = cuties[Math.floor(Math.random() * cuties.length)];
+    const cutiesR = randomFromArray(cuties);
 
     let embed = new Discord.RichEmbed()
         .setTitle('I just restarted dads!')

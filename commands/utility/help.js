@@ -1,11 +1,12 @@
 const Discord = require("discord.js");
+const { properCase } = require('../../library/Utilities');
 
 exports.run = async (client, message, args) => {
     if (args[0]) {
         let command = client.commands.has(args[0]) ? client.commands.get(args[0]) : (client.aliases.has(args[0]) ? client.aliases.get(args[0]) : null);
         if (!command) return;
         const embed = new Discord.RichEmbed()
-            .addField(`**${command.help.name.toProperCase()} Command**`, command.help.description)
+            .addField(`**${properCase(command.help.name)} Command**`, command.help.description)
             .addField('Usage', command.help.usage)
             .setColor(client.config.embedColor);
         if (command.help.aliases) {
@@ -19,7 +20,7 @@ exports.run = async (client, message, args) => {
 
             client.commands.forEach(c => {
                 if (c.help.enabled == true && c.help.hideHelp == false) {
-                    let n = c.help.type.toProperCase();
+                    let n = properCase(c.help.type);
                     if (!cats.has(n)) {
                         cats.set(n, {
                             name: n,
