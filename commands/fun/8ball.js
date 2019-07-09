@@ -1,4 +1,4 @@
-const { randomFromArray } = require('../../library/Utilities');
+const { randomFromArray } = require('../../library/utilities');
 
 exports.run = (client, message, args) => {
 

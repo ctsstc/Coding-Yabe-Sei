@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { randomFromArray } = require('../library/Utilities');
+const { randomFromArray } = require('../library/utilities');
 
 module.exports = async (client) => {
     const { config } = client;
