@@ -9,7 +9,6 @@ const client = new Discord.Client();
 client.config = config;
 client.commands = new Enmap();
 client.aliases = new Enmap();
-require("./utils.js")(client);
 
 if (config.production != 'false') {
     const DBL = require("dblapi.js");
