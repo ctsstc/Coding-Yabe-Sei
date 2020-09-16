@@ -1,7 +1,7 @@
 exports.run = (client, message, args) => {
     try {
         let roleSearch = args.join(" ").toLowerCase();
-        let roleToRemove = message.guild.roles.find(x => x.name.toLowerCase() === roleSearch);
+        let roleToRemove = message.guild.roles.cache.find(x => x.name.toLowerCase() === roleSearch);
 
         if (!roleSearch)
             return message.reply('Gimmie a role ya big silly');
@@ -9,10 +9,10 @@ exports.run = (client, message, args) => {
         if (roleToRemove == undefined)
             return message.reply(`Unfortunately that role, **${roleSearch}**, does not exist`);
 
-        if (!message.member.roles.has(roleToRemove.id))
+        if (!message.member.roles.cache.has(roleToRemove.id))
             return message.reply("You don't have that role!");
 
-        message.member.removeRole(`${roleToRemove.id}`).then(() => message.react(`✅`))
+        message.member.roles.remove(`${roleToRemove.id}`).then(() => message.react(`✅`))
         .catch(error => {
             console.error;
             message.react('❎');

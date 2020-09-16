@@ -11,7 +11,6 @@ exports.run = (client, message, args) => {
 
             if (!error && response.statusCode === 200) {
                 message.channel.send(body.url);
-                console.log(body.url);
             }
         })
     } catch (err) {

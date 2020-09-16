@@ -10,7 +10,7 @@ module.exports = (client) => {
     ];
     const helpsR = helps[Math.floor(Math.random() * helps.length)];
 
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
         .setTitle(helpsR)
         .setTimestamp()
         .setFooter('Whoever is seeing this, please check the heroku, thx')

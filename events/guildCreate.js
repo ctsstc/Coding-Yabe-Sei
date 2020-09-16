@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = (client, guild) => {
     try {
-        client.user.setActivity(`yabe help | ${client.guilds.size} servers`, { type: 'PLAYING' });
+        client.user.setActivity(`yabe help | ${client.guilds.cache.size} servers`, { type: 'PLAYING' });
 
         let bots = 0;
         let people = 0;
@@ -15,7 +15,7 @@ module.exports = (client, guild) => {
 
         let logChannel = client.config.logChannel;
 
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
             .setColor(client.config.embedColor)
             .setTitle(`Just __joined__ ${guild.name}`)
             .setDescription(`**${guild.owner.user.username}#${guild.owner.user.discriminator}** is the owner of the guild.\nGuild has **${guild.members.size}** members.\n\n`)

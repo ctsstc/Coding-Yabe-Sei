@@ -10,7 +10,7 @@ exports.run = (client, message, _args) => {
         const json = JSON.parse(body);
         const { id, image, caption, category } = json;
 
-        const emb = new Discord.RichEmbed();
+        const emb = new Discord.MessageEmbed();
             emb.setDescription(`${caption} - ${category} #${id}`);
             emb.setColor(client.config.embedColor);
             emb.setImage(image);

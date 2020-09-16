@@ -18,7 +18,7 @@ exports.run = (client, message, _args) => {
         body = JSON.parse(body);
         const imgURL = body.link;
 
-        const emb = new Discord.RichEmbed();
+        const emb = new Discord.MessageEmbed();
             emb.setDescription = descs.random();
             emb.setColor(client.config.embedColor);
             emb.setImage(imgURL);

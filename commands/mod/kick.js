@@ -13,10 +13,10 @@ exports.run = async (client, message, [mention, ...reason]) => {
 
 	const kickMember = message.mentions.members.first();
 
-	const embed = new Discord.RichEmbed()
+	const embed = new Discord.MessageEmbed()
 		.setTitle("Kicked from server")
 		.setDescription(kickMember.guild)
-		.setThumbnail(kickMember.guild.iconURL)
+		.setThumbnail(kickMember.guild.iconURL())
 		.setColor(client.config.embedColor)
 		.setTimestamp()
 		.setFooter(`Kicked by ${message.author.username}`);

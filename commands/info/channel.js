@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
     let nsfwV = message.channel.nsfw ? 'Yes' : 'No';
     let parentV = message.channel.parent ? message.channel.parent : 'No parent category';
     let topicV = message.channel.topic ? message.channel.topic : 'There is no topic for this channel.';
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
         .setTitle('Channel: ' + message.channel.name)
         .setDescription('Topic: ' + topicV)
         .addField('NSFW?', nsfwV, true)

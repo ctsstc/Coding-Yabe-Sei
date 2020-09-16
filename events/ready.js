@@ -14,7 +14,7 @@ module.exports = async (client) => {
         client.appInfo = await client.fetchApplication();
     }, 60000);
 
-    console.log(`Ready to serve in ${client.channels.size} channels on ${client.guilds.size} servers, for a total of ${client.users.size} users.`);
+    console.log(`Ready to serve in ${client.channels.cache.size} channels on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users.`);
     /*
     setInterval( function() {
         const index = Math.floor(Math.random() * (activitiesList -1) +1);
@@ -22,12 +22,12 @@ module.exports = async (client) => {
     }, 20000)
     */
 
-    client.user.setActivity(`yabe help | ${client.guilds.size} servers`, { type: 'PLAYING' });
+    client.user.setActivity(`yabe help | ${client.guilds.cache.size} servers`, { type: 'PLAYING' });
 
     const cuties = ['Teehee owo', 'uwu', 'OwO', '\*owo\* notices bulgy wulgy', 'Lovies you papas!~', 'Nyaa! ฅ(＾・ω・＾ฅ)'];
     const cutiesR = cuties[Math.floor(Math.random() * cuties.length)];
 
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
         .setTitle('I just restarted dads!')
         .setTimestamp()
         .setFooter(cutiesR)
@@ -35,7 +35,7 @@ module.exports = async (client) => {
 
     const channelId = config.logChannel;
     try {
-        const channel = await client.channels.get(channelId);
+        const channel = await client.channels.cache.get(channelId);
         channel.send(embed);
     }
     catch(e) {

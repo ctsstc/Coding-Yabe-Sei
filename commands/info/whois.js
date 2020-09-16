@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
 	try {
 		let maxUsersToDisplay = 50;
 
-		let roles = message.guild.roles;
+		let roles = message.guild.roles.cache;
 		let roleKeys = roles.keyArray();
 
 		let sendEmbed = (name, role) => {
@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
 			let roleKeys = role.keyArray()
 			roleKeys.forEach(key => memberNames.push(role.get(key)));
 
-			let emb = new Discord.RichEmbed();
+			let emb = new Discord.MessageEmbed();
 
 			emb.setColor(client.config.embedColor);
 
@@ -29,7 +29,7 @@ exports.run = (client, message, args) => {
 				tooManyText = " (too many to display)";
 			}
 			
-			memberNames.forEach(member => memberUsers += member.user + "\n");
+			memberNames.forEach(member => memberUsers += "<@" + member.user.id + ">\n");
 
 			if(moreThanMax)
 				memberUsers += "...";

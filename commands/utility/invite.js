@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
         .setColor(client.config.embedColor)
-        .setDescription(`[Click here to invite me to your server :3](https://discordapp.com/oauth2/authorize?client_id=506254054339379220&scope=bot&permissions=8)`);
+        .setDescription(`[Click here to invite me to your server :3](https://discord.com/api/oauth2/authorize?client_id=755708845744980051&permissions=8&scope=bot)`);
 
     message.channel.send(embed);
 }

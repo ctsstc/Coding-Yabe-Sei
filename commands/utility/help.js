@@ -4,7 +4,7 @@ exports.run = async (client, message, args) => {
     if (args[0]) {
         let command = client.commands.has(args[0]) ? client.commands.get(args[0]) : (client.aliases.has(args[0]) ? client.aliases.get(args[0]) : null);
         if (!command) return;
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
             .addField(`**${command.help.name.toProperCase()} Command**`, command.help.description)
             .addField('Usage', command.help.usage)
             .setColor(client.config.embedColor);
@@ -30,22 +30,22 @@ exports.run = async (client, message, args) => {
                 }
             });
 
-            var embed = new Discord.RichEmbed();
+            var embed = new Discord.MessageEmbed();
             embed.setTitle(`Commands Info`);
-            embed.setDescription(`Use \`yabe help commandname\` to view help on a command. To see changelogs use \`yabe changlog\`. For additional help with a command, type \`yabe help <command name>\`.\nThank you for using the Yabe beta bot! We hope you will stick with us!`);
+            embed.setDescription(`Use \`yabe help commandname\` to view help on a command. To see changelogs use \`yabe changelog\`. For additional help with a command, type \`yabe help <command name>\`.\nThank you for using the Yabe beta bot! We hope you will stick with us!`);
             cats.forEach(cat => {
                 embed.addField(`**${cat.name}**`, cat.array.join(", "));
             });
             embed.setColor(client.config.embedColor);
             embed.setTimestamp();
-            embed.setThumbnail(client.user.displayAvatarURL);
+            embed.setThumbnail(client.user.displayAvatarURL());
             embed.setFooter(`Created by Adam, Hesham and Marvin`);
             message.channel.send(embed).catch((e) => {
                 message.channel.send(`Something went wrong! Tell a dev or try again.`);
                 console.error(e);
             });
         } else {
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
                 .setColor(client.config.embedColor)
                 .addField("**Changelog**", "You can check the latest changes with `yabe changelog`")
                 .addField("**Commands**", "List of all available commands\nFor additional help with a command, type `yabe help <command name>`\nThank you for using the Yabe beta bot! We hope you will stick with us!")

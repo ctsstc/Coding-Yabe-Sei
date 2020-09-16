@@ -11,7 +11,7 @@ exports.run = async (client, message, args) => {
         let timeS;
         let votingthing;
         if (message.mentions.channels.size > 0 && args[0].startsWith("<#")) {
-            channel = message.guild.channels.get(message.mentions.channels.first().id);
+            channel = message.guild.channels.cache.get(message.mentions.channels.first().id);
             timeS = args[1];
             votingthing = args.splice(2, args.length);
         } else {
@@ -37,10 +37,10 @@ exports.run = async (client, message, args) => {
             return;
         }
 
-        const VoteEmbed = new Discord.RichEmbed()
+        const VoteEmbed = new Discord.MessageEmbed()
             .setTitle(votingthing)
             .setDescription("Vote Now!")
-            .setFooter(`Started by ${message.author.username}`, message.author.displayAvatarURL)
+            .setFooter(`Started by ${message.author.username}`, message.author.displayAvatarURL())
             .setColor(client.config.embedColor);
 
         let msg = await channel.send({
@@ -66,7 +66,7 @@ exports.run = async (client, message, args) => {
         var total = yes > no ? "In Favor of Yes" : "In Favor of No";
         if (yes == no) total = "It was a tie!";
 
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
             .setTitle(`${votingthing.replace(/([^\W_]+[^\s-]*) */g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase() })}`)
             .setDescription("**----------------------------------------**\n" +
                 "Total votes (Yes): " + `${yes - 1}\n` +
@@ -75,7 +75,7 @@ exports.run = async (client, message, args) => {
                 `${total}\n` +
                 "**----------------------------------------**", true)
             .setColor(client.config.embedColor)
-            .setFooter(`Started by ${message.author.username}`, message.author.displayAvatarURL);
+            .setFooter(`Started by ${message.author.username}`, message.author.displayAvatarURL());
 
         await msg.edit("Voting finished!", {
             embed

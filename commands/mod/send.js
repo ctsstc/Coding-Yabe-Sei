@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
     if (chanSendFind === false) return message.reply('you need to specify a channel to send this message in. `yabe send #<channel_name> <content>`');
     if (!contSend) return message.reply('I can\'t send an empty message.');
 
-    client.channels.get(chanSendFind).send(contSend)
+    client.channels.cache.get(chanSendFind).send(contSend)
         .then(() => message.react(`✅`))
         .catch(console.error);
 }

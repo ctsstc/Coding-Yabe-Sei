@@ -20,9 +20,9 @@ exports.run = (client, message, args) => {
 		else if (args.length == 0)
 			var target = message.author;
 
-		let embed = new Discord.RichEmbed()
+		let embed = new Discord.MessageEmbed()
 			.setTitle(`**${target.username}'s** Avatar`)
-			.setImage(target.displayAvatarURL)
+			.setImage(target.displayAvatarURL())
 			.setColor(client.config.embedColor);
 		return message.channel.send(embed);
 
@@ -33,7 +33,7 @@ exports.run = (client, message, args) => {
 			message.react('💤');
 			message.channel.send(`❌ user \`${targetName}\` not found ❌`).then(respMessage => {
 				if (message.guild.me.hasPermission("MANAGE_MESSAGES"))
-					respMessage.delete(10000);
+					respMessage.delete({ timeout: 10000 });
 			});
 		}
 		else

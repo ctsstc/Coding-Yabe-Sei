@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
 	if (!args) { return; } else if (!args[1] && args[0] != "subcmds") { return; }
 
 	if (args[0] == "subcmds") {
-		let emb = new Discord.RichEmbed();
+		let emb = new Discord.MessageEmbed();
 
 		emb.setColor(client.config.embedColor);
 		emb.addField("Pokemon Sub Commands:", "`subcmds`, `dex`, `move`");
@@ -24,7 +24,7 @@ exports.run = (client, message, args) => {
 
 		pkB = pkmn.base;
 
-		let pokeEmbed = new Discord.RichEmbed();
+		let pokeEmbed = new Discord.MessageEmbed();
 		pokeEmbed.title = pkmn.name + " #" + pkmn.id;
 		pokeEmbed.description = pkmn.info[Math.floor(Math.random() * pkmn.info.length)];
 		pokeEmbed.setImage("https://" + pkmn.img);
@@ -47,7 +47,7 @@ exports.run = (client, message, args) => {
 		}
 		if (move == undefined) { message.channel.send("Sorry, I couldn't find that move!"); return; }
 
-		let moveEmb = new Discord.RichEmbed();
+		let moveEmb = new Discord.MessageEmbed();
 		moveEmb.title = move.name + " #" + move.no;
 		moveEmb.addField("Type:", move.type);
 		moveEmb.addField("Category:", move.category);

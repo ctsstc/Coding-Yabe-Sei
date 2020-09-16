@@ -19,7 +19,7 @@ exports.run = (client, message, args) => {
         newResult = resDel.toString();
         newResults = newResult.replace(/,(?=[^,]*$)/, ' and');
 
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
             .setColor(client.config.embedColor)
             .setDescription('You rolled:  ' + newResults);
 

@@ -17,7 +17,7 @@ exports.run = (client, message) => {
 
         try { //better to be safe than sorry
             let image = JSON.parse(body);
-            let embed = new Discord.RichEmbed()
+            let embed = new Discord.MessageEmbed()
                 .setColor(client.config.embedColor)
                 .setImage(image.data[Math.floor(Math.random() * image.data.length)].link);
             message.channel.send(embed);

@@ -6,12 +6,12 @@ exports.run = (client, message, args) => {
     if (!bugText) return message.reply("I can't send an empty bug report!");
     message.reply("Thank you for submitting a bug, hopefully it won't require major surgery :grimacing:");
     const bug = `**${message.author.username}#${message.author.discriminator}** (${message.author.id}) reported:\n\n"${bugText}"\n\nOn the server: **${message.guild.name}**\nServer ID: **${message.guild.id}**`;
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
         .setTitle("Bug Report")
         .setDescription(bug)
         .setColor(client.config.embedColor);
 
-    client.channels.get(config.bugChannel).send(embed)
+    client.channels.cache.get(config.bugChannel).send(embed)
         .catch(console.error);
 }
 

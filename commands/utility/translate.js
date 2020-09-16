@@ -123,7 +123,7 @@ exports.run = (client, message, [args, ...words]) => {
             listOfDLangs += `${long} - ${short}\n`;
         }
 
-        let embed1 = new Discord.RichEmbed()
+        let embed1 = new Discord.MessageEmbed()
             .setColor(client.config.embedColor)
             .setTitle('List of languages yabe can translate:')
             .setDescription(listOfDLangs)
@@ -155,7 +155,7 @@ exports.run = (client, message, [args, ...words]) => {
 
             try {
                 let translation = JSON.parse(body);
-                let embed = new Discord.RichEmbed()
+                let embed = new Discord.MessageEmbed()
                     .setDescription(translation[0][0][0])
                     .setColor(client.config.embedColor);
                 message.channel.send(`Translated from ${langs[sourceLang]} to ${langs[targetLang]}:`);

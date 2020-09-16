@@ -84,7 +84,7 @@ exports.run = (client, message, args) => {
     }
     */
     let embed = new Discord.RichEmbed()
-        .setDescription('**Thank you for using Coding Yabe Sei\'s beta!**\nSadly, due to a heavy work load on the devs of Yabe *cough*, the learning feature of Yabe is not yet completed! You can expect a full release of Yabe in the near future, if you have any more questions please ask in our [Discord Server](https://discord.gg/Sc44knm). Thanks for giving us a chance, we hope you\'ll stick along.')
+        .setDescription('**Thank you for using Yabe\'s beta!**\nSadly, due to a heavy work load on the devs of Yabe *cough*, the learning feature of Yabe is not yet completed! You can expect a full release of Yabe in the near future, if you have any more questions please ask in our [Discord Server](https://discord.gg/Sc44knm). Thanks for giving us a chance, we hope you\'ll stick along.')
         .setColor(client.config.embedColor)
 
     message.channel.send(embed);

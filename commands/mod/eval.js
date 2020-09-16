@@ -24,7 +24,7 @@ exports.run = (client, message, args) => {
 
 			//let outputText = `clean(evaled), {code:"xl"}`;
 
-			let embed = new Discord.RichEmbed()
+			let embed = new Discord.MessageEmbed()
 				.addField("Input :inbox_tray:", `\`\`\`${devText}\`\`\``)
 				.addBlankField()
 				.addField("Output :outbox_tray:", `\`\`\`${clean(evaled)}\`\`\``)

@@ -13,10 +13,10 @@ exports.run = async (client, message, [mention, ...reason]) => {
 
 	const banMember = message.mentions.members.first();
 
-	const embed = new Discord.RichEmbed()
+	const embed = new Discord.MessageEmbed()
 		.setTitle("Banned from server")
 		.setDescription(banMember.guild)
-		.setThumbnail(banMember.guild.iconURL)
+		.setThumbnail(banMember.guild.iconURL())
 		.setColor(client.config.embedColor)
 		.setTimestamp()
 		.setFooter(`Banned by ${message.author.username}`);
@@ -25,8 +25,8 @@ exports.run = async (client, message, [mention, ...reason]) => {
 
 	await message.channel.awaitMessages(msg => msg.content.toLowerCase() == "yes" || msg.content.toLowerCase() == "no",
 		{
-			maxMatches: 1,
 			max: 1,
+			maxProcessed: 1,
 			time: 10000,
 			errors: ['time']
 		})

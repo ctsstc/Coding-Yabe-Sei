@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
 
     osuApi.getUser({ u: args.join(' ') }).then(user => {
         //console.log(user)
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
             .setColor(config.embedColor)
             .setThumbnail("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Osu%21Logo_%282015%29.png/600px-Osu%21Logo_%282015%29.png")
             .setAuthor(`${user.name} (${user.id})`, `https://a.ppy.sh/${user.id}`, `https://osu.ppy.sh/users/${user.id}`)
