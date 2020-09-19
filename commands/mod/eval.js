@@ -26,7 +26,7 @@ exports.run = (client, message, args) => {
 
 			let embed = new Discord.MessageEmbed()
 				.addField("Input :inbox_tray:", `\`\`\`${devText}\`\`\``)
-				.addBlankField()
+				.addField("\u200b", "\u200b")
 				.addField("Output :outbox_tray:", `\`\`\`${clean(evaled)}\`\`\``)
 				.setColor(client.config.embedColor);
 
