@@ -26,7 +26,6 @@ exports.run = async (client, message, [mention, ...reason]) => {
 	await message.channel.awaitMessages(msg => msg.content.toLowerCase() == "yes" || msg.content.toLowerCase() == "no",
 		{
 			max: 1,
-			maxProcessed: 1,
 			time: 10000,
 			errors: ['time']
 		})
