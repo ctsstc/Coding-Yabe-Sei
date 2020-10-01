@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const request = require("request");
 
 exports.run = (client, message) => {
-    const baseUrl = "https://thatcopy.pw/catapi/get/webp";
+    const baseUrl = "https://api.illusionman1212.me/kotapi/";
 
     request(baseUrl, function (error, _response, body) {
         if (error) {
@@ -26,7 +26,7 @@ exports.help = {
     enabled: true,
     hideHelp: false,
     type: "image",
-    name: "copycat",
-    description: "Gets a copy cat from copy's catAPI",
-    usage: "`yabe copycat`",
+    name: "illusioncat",
+    description: "Gets an illusion cat from illusion's kotAPI",
+    usage: "`yabe illusioncat`",
 }
