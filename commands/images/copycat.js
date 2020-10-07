@@ -12,7 +12,7 @@ exports.run = (client, message) => {
         }
 
         body = JSON.parse(body);
-        const imgURL = body.url;
+        const imgURL = body.webpurl;
 
         const emb = new Discord.MessageEmbed();
             emb.setColor(client.config.embedColor);
