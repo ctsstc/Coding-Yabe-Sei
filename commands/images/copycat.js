@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const request = require("request");
 
 exports.run = (client, message) => {
-    const baseUrl = "https://thatcopy.pw/catapi/get/webp";
+    const baseUrl = "https://thatcopy.pw/catapi/rest";
 
     request(baseUrl, function (error, _response, body) {
         if (error) {
