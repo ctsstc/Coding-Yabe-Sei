@@ -102,24 +102,23 @@ describe('Roll', () => {
             const output = {
                 "author": null,
                 "color": 3840,
-                "description": "You rolled:  1 and 2",
+                "description": "You rolled:  1 and 2\nFor a total of: 3",
                 "fields": [],
-                "files": [],
                 "footer": null,
                 "image": null,
-                "provider": null,
                 "thumbnail": null,
                 "timestamp": null,
                 "title": undefined,
                 "type": undefined,
-                "url": undefined,
-                "video": null,
+                "url": undefined
+
             };
 
             she('has the right response', () => {
                 randomMock.mockReturnValueOnce(.1).mockReturnValueOnce(.8);
                 roll(2, 2);
-                expect(message.channel.send).lastCalledWith(output);
+                const lastCall = message.channel.send.mock.calls[0];
+                expect(lastCall).toMatchObject([output]);
             });
         });
     });
