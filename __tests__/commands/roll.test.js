@@ -102,7 +102,7 @@ describe('Roll', () => {
             const output = {
                 "author": null,
                 "color": 3840,
-                "description": "You rolled:  1 and 2\nFor a total of: 3",
+                "description": "You rolled:  1, 2 and 3\nFor a total of: 6",
                 "fields": [],
                 "footer": null,
                 "image": null,
@@ -114,9 +114,14 @@ describe('Roll', () => {
 
             };
 
+            // Implicitly checks that the join + and is working properly
+            // Should be inheriting the correct color from the client config mock
             she('has the right response', () => {
-                randomMock.mockReturnValueOnce(.1).mockReturnValueOnce(.8);
-                roll(2, 2);
+                randomMock
+                    .mockReturnValueOnce(.1)
+                    .mockReturnValueOnce(.4)
+                    .mockReturnValueOnce(.8);
+                roll(3, 3);
                 const lastCall = message.channel.send.mock.calls[0];
                 expect(lastCall).toMatchObject([output]);
             });
