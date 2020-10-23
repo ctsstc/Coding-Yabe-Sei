@@ -146,7 +146,7 @@ describe('Roll', () => {
             expect(help.name).toEqual('roll');
         });
 
-        she('tells you about the dice', () => {
+        she('tells you about herself', () => {
             expect(help.description).toEqual('The `roll` command rolls a specified number of die with a specified number of sides.');
         });
 
